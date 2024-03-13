@@ -1,0 +1,23 @@
+
+# env file 
+.env
+
+# Compiled Code
+/dist
+*.js
+*.map
+
+# node_modules directory
+/node_modules
+
+
+# package files
+/package.json
+/package-lock.json
+
+# TypeScript configuration file
+/tsconfig.json
+
+# Editor/IDE specific files and directories
+.vscode/
+.idea/
