@@ -34,10 +34,3 @@ Example request:
 
 ```bash
 curl http://localhost:3000/definitions/hello
-
-
-  this.router.post('/insertWord', dictionaryController.insertWord);
-        this.router.get('/getWord', dictionaryController.getWord);
-        this.router.get('/searchWord', dictionaryController.searchWord);
-        this.router.put('/updateWord', dictionaryController.updateWord);
-        this.router.delete('/deleteWord', dictionaryController.deleteWord);
