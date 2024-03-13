@@ -33,4 +33,4 @@ Once the application is running, you can use it by sending HTTP requests to the 
 Example request:
 
 ```bash
-curl http://localhost:3000/definitions/hello
+curl http://localhost:3000/dictionary/getWord
