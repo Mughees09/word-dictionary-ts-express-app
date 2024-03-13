@@ -47,10 +47,7 @@ class DictionaryModal {
                     )
                 `;
                 await this.connection.query(query);
-                console.log(`Table '${this.tableName}' created successfully.`);
-            } else {
-                console.log(`Table '${this.tableName}' already exists.`);
-            }
+            } 
         } catch (error) {
             console.error(`Error creating table '${this.tableName}':`, error);
         }
@@ -64,12 +61,9 @@ class DictionaryModal {
             const placeholders = keys.map((_, index) => `$${index + 1}`).join(',');
             const columns = keys.join(',');
             const query = `INSERT INTO ${this.tableName} (${columns}) VALUES (${placeholders})`;
-            console.log("data in query:", data);
             
             await this.connection.query(query, values);
-            console.log("data inserted successfully:", data);
-        }else{
-            console.log("Can't insert null data:", data);
+           
         }
     }
     
@@ -127,33 +121,23 @@ class DictionaryModal {
 
     async filterWordsUsingAnd(condition: Partial<IWord>){
         const keys = Object.keys(condition);
-        console.log("keys: ",keys);
         const values = Object.values(condition);
-        console.log("values: ",values);
         const whereClauses = Object.keys(condition)
             .map((key, index) => `${key} = $${index + 1}`)
             .join(' AND ');
-        console.log("whereClauses: ",whereClauses);
         const query = `SELECT * FROM ${this.tableName} WHERE ${whereClauses}`;
-        console.log("query: ",query);
         const result = await this.connection.query(query, values);
-        console.log("result: ",result.rows[0]);
         return result.rows[0];
     }
     
     async filterWordsUsingOr(condition: Partial<IWord>){
         const keys = Object.keys(condition);
-        console.log("keys: ",keys);
         const values = Object.values(condition);
-        console.log("values: ",values);
         const whereClauses = Object.keys(condition)
             .map((key, index) => `${key} = $${index + 1}`)
             .join(' OR ');
-        console.log("whereClauses: ",whereClauses);
         const query = `SELECT * FROM ${this.tableName} WHERE ${whereClauses}`;
-        console.log("query: ",query);
         const result = await this.connection.query(query, values);
-        console.log("result: ",result.rows[0]);
         return result.rows[0];
     }
 

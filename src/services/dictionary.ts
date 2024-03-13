@@ -34,16 +34,13 @@ class DictionaryService {
     */
    public async getWord(id?:number): Promise<IWord | Partial<IWord> | IWord[]> {
     let wordDetails!: Partial<IWord> | IWord | Array<IWord>; 
-    console.log("In service: ",id);
     
     if (id) {
       wordDetails = await dictionaryModal.getOne(id);
-      console.log("wordDetails: ",wordDetails);
       
        return  wordDetails
     }else {
       wordDetails = await dictionaryModal.getAll();
-      console.log("wordDetails: ",wordDetails);
       
        return  wordDetails
     }
